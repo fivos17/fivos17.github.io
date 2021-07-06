@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="graphics2/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="graphics2/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="graphics2/favicon-16x16.png">
+    <link rel="shortcut icon" href="graphics2/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <main id="main">
+        <header>
+            <h1 id="title">
+            Very Important Survey Form
+            </h1>
+            <p id="description">
+            thank you for your time
+            </p>
+        </header>
+        <form id="survey-form">
+            <!--NAME-->
+            <label for="name" id="name-label">Name*</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required class="form-control"><br>
+            <!--EMAIL-->
+            <label for="email" id="email-label">Email*</label>
+            <input type="email"id="email" name="email" placeholder="example@email.com" required class="form-control"><br>
+            <!--AGE-->
+            <label for="number" id="number-label">Age</label>
+            <input type="number" id="number" name="number" min="10" max="99" placeholder="minimum 10" class="form-control"><br>
+            <!--DROPDOWN-->
+            <label for="dropdown">Which option best describes your current role?*</label>
+            <select id="dropdown" name="dropdown" required class="form-control">
+                <option disabled selected value style="color: white;">Select an option</option>
+                <option value="Simp">Simp</option>
+                <option value="Incel">Incel</option>
+                <option value="Nice guy">Nice guy</option>
+            </select><br>
+            <!--RADIO-->
+            <p>Are you</p>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male" class="radiolabel">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female" class="radiolabel">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other" class="radiolabel">Other</label><br><br>
+            <!--CHECKBOX-->
+            <p>Do you like</p>
+            <input type="checkbox" id="chocolate" name="check" value="chocolate">
+            <label for="chocolate" class="checklabel">Chocolate</label><br>
+            <input type="checkbox" id="chips" name="check" value="chips">
+            <label for="chips" class="checklabel">Chips</label><br>
+            <input type="checkbox" id="soda" name="check" value="soda">
+            <label for="soda" class="checklabel">Soda</label><br><br>
+            <!--TEXTAREA-->
+            <p>Comments</p>
+            <textarea id="comments" placeholder="enter your comments here..."></textarea><br>
+            <!--SUBMIT-->
+            <button type="submit" id="submit">SUBMIT</button>
+        </form>
+    </main>
+</body>
+</html>

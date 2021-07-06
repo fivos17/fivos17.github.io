@@ -1,0 +1,219 @@
+html{
+    font-family: 'Roboto';
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    background-color: #E5E5E5;
+}
+h1{
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 3.5rem;
+    letter-spacing: -0.5px;
+}
+h2{
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 2.5rem;
+    letter-spacing: -0.5px;
+}
+header{
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.2rem;
+    letter-spacing: 0px;
+}
+h4{
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0px;
+}
+h5{
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.1rem;
+    letter-spacing: 0.18px;
+}
+p{
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.3rem;
+    letter-spacing: 0.15px;
+}
+code{
+  font-family: 'Roboto';
+  font-size: 105%;
+  font-weight: 600;
+}
+
+  /* ------------------------------W3S side nav https://www.w3schools.com/howto/howto_js_sidenav.asp ---------------------------------- */
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    /* background: linear-gradient(180deg, rgba(252,163,17,1) 0%, rgba(20,33,61,1) 100%); */
+    background-color: #14213D;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 3rem; /* Place content 3rem from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  .sidenav a {
+    padding: 0.6rem 0.5rem 0.6rem 2rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #E5E5E5;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #FCA311;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 1.5rem;
+    font-size: 2rem;
+    margin-left: 3rem;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main-doc {
+    transition: margin-left .5s;
+    padding: 1.8rem;
+  }
+
+  /* ------------------------------W3S side nav https://www.w3schools.com/howto/howto_js_sidenav.asp ---------------------------------- */
+
+  #hero{
+    background-image: url(./Assets/b2085d7b.png);
+    clip-path: polygon(0% 0%, 90% 0, 100% 50%, 90% 100%, 0% 100%); 
+    margin: 0 -2rem;
+    padding: 0.5rem 4rem 0.5rem 2rem;
+  }
+  #hero h1{
+    color: #14213D;
+  }
+
+  #hero h2{
+    color: #E5E5E5;
+  }
+
+  #nav {
+    background-color: #14213D;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 0.3rem 2rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  #menu{
+    cursor: pointer;
+    color: #E5E5E5;
+  }
+
+  #title{
+    margin-right: auto;
+    margin-left: auto;
+    right: 4rem;
+    position: relative;
+  }
+  #title a{
+    text-decoration: none;
+    color: #E5E5E5;
+  }
+
+  section header{
+    color: #14213d;
+    margin: 0;
+    padding: 2rem 0 1rem 0;
+  }
+
+  .img-bg img{
+    width: 100%;
+  }
+
+  .img-bg{
+    padding: 0.8rem;
+    background-image: url(./Assets/b2085d7b.png);
+    width: 70%;
+  }
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  @media screen and (min-width: 900px) {
+#main-doc{
+  margin-left: 15rem;
+}
+#navbar{
+  width: 15rem !important;
+  padding-top: 2rem;
+  z-index: 1;
+  background-color: white;
+}
+.sidenav a{
+  color: #14213d;
+  padding: 1rem 0.5rem;
+}
+#menu{
+  visibility: collapse;
+}
+.closebtn{
+  visibility: collapse;
+}
+  }
+
+@media screen and (max-width: 600px){
+  #title{
+    right: 2rem;
+  }
+  html {
+    font-size: 14px;
+  }
+  .img-bg{
+    width: 95%;
+  }
+  #hero{
+    clip-path: none;
+  }
+}
+
+  /* 
+  COLOR PALETTE
+  #000000 BLACK
+  #14213D OXFORD BLUE
+  #FCA311 ORANGE WEB
+  #E5E5E5 PLATINUM
+  #FFFFFF WHITE
+  */
+
+
+  /* 
+  CTRL+SHIFT+P 
+  Wrap content with abbreviation
+  */

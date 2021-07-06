@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina+2&display=swap');
+
+
+:root{
+    --color-pink: #fc5185;
+    --color-darkblue: #364f6b;
+    --color-lightblue: #43dde6;
+    --color-white: #f0f0f0;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    text-align: center;
+    background-image:
+    url(graphics2/landscape-maldives-photography-sea-wallpaper.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.93;
+    margin: 0;
+    color: var(--color-darkblue);
+}
+
+#main{
+    padding-top: 30px;
+}
+
+h1{
+    font-size: 4rem;
+}
+
+#description{
+    font-size: 3.25rem;
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+form{
+    font-size: 2rem;
+    text-align: left;
+    background-color: var(--color-white);
+    padding: 50px 45px;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: auto;
+    width: 50%;
+}
+
+input,
+select,
+textarea,
+button{
+    margin: 0.75rem 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.form-control,
+#comments,
+#submit {
+    display: block;
+    width: 98%;
+    height: 3.5rem;
+    padding: 0.375rem 0.75rem;
+    border: 1.5px solid #7e7e7e;
+    border-radius: 0.4rem;
+  }
+
+p, 
+label{
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.radiolabel,
+.checklabel{
+    font-weight: normal;
+}
+
+.radiolabel:hover,
+.checklabel:hover{
+    cursor: pointer;
+}
+
+
+#comments{
+    height: 50%;
+    width: 97%;
+}
+
+#dropdown{
+    height: 4.5rem;
+    width: 100%;
+}
+
+#submit{
+    width: 100%;
+    height: 4.5rem;
+    background-color: var(--color-pink);
+    /* padding-top: 0.8rem; */
+    color: var(--color-white);
+    letter-spacing: 0.2rem;
+    border-color: transparent;
+    font-weight: bolder;
+}
+
+#submit:hover{
+    cursor: pointer;
+    box-shadow: 0px 5px 0px #364f6b;
+    color: var(--color-darkblue);
+    transition: 0.3s;
+}
+
+@media(max-width: 700px){
+    form{
+        width: auto;
+    }
+}

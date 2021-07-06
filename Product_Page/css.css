@@ -1,0 +1,234 @@
+html{
+    font-family: 'Roboto';
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    background-color: #F2E7FE;
+}
+h2{
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 2.5rem;
+    letter-spacing: -0.5px;
+    margin: 0;
+    padding: 0;
+}
+h3{
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.2rem;
+    letter-spacing: 0px;
+    margin: 0;
+    padding: 0;
+}
+h4{
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0px;
+    margin: 0;
+    padding: 0;
+}
+h5{
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.1rem;
+    letter-spacing: 0.18px;
+    margin: 0;
+    padding: 0;
+}
+p{
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.3rem;
+    letter-spacing: 0.15px;
+    margin: 0;
+    padding: 0;
+}
+
+/* ********************* */
+
+#header{
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    width: 100%;
+    background-color: #173042;
+    color: #CFDFDA;
+    position: fixed;
+    top: 0;
+}
+#header-img{
+    margin: 0 1rem;
+}
+#nav-bar{
+    margin-left: auto;
+    margin-right: 0.5rem;
+    align-self:flex-end;
+    display: flex;
+    flex-shrink: 0;
+}
+.nav-link{
+    text-decoration: none;
+    color: #CFDFDA;
+    margin: 0 1rem 0.5rem 1rem;
+    flex-shrink: 0;
+}
+.anchor {
+    padding-top: 4rem;
+}
+.vl{
+    border-left: 1px solid rgb(134, 134, 134);
+    height: 1.2rem;
+}
+#content{
+    padding: 2rem;
+}
+#intro{
+    margin-top: 5rem;
+}
+#intro h4{
+    color: rgb(88, 88, 88);
+    margin-top: 1rem;
+}
+#form{
+    display: flex;
+    margin-top: 1.5rem;
+}
+#email{
+    height: 1.8rem;
+    width: 15rem;
+}
+input::placeholder{
+    font-family: 'Roboto';
+    font-size: 1rem;
+}
+#submit{
+    margin-left: 0.5rem;
+    background-color: #236477;
+    border-style: none;
+    border-radius: 5px;
+    color: #FFFF;
+    padding: 0 0.7rem;
+}
+#submit:hover{
+    background-color: #173042;
+    cursor: pointer;
+}
+
+.feature{
+    display: flex;
+    align-items:center;
+    background-color: #FFFF;
+    margin-top: 1rem;
+    padding: 1rem;
+    box-shadow: -3px 6px 11px -1px rgba(0,0,0,0.15);
+}
+.feature svg{
+    flex-shrink: 0;
+}
+.description{
+    margin: 0 1rem 0 1rem;
+}
+.description p{
+    margin-top: 0.5rem;
+}
+#video-background{
+    background: linear-gradient(90deg, rgba(242,231,254,1) 0%, rgba(255,255,255,1) 50%, rgba(242,231,254,1) 100%);
+}
+#video{
+    border-style: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+#pricings{
+    display: flex;
+}
+.pricing{
+    text-align: center;
+    margin: 1rem;
+    background-color: #FFFF;
+    box-shadow: -3px 6px 11px -1px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+.pricing h3{
+    background-color: #236477;
+    color: #CFDFDA;
+    padding: 0.7rem;
+}
+.pricing p{
+    margin: 1.5rem 10%;
+}
+.pricing button{
+    margin: auto 1rem 1rem 1rem;
+    background-color: #5FA874;
+    border-style: none;
+    border-radius: 5px;
+    color: #FFFF;
+    padding: 0.5rem 1rem;
+    width: 30%;
+    align-self: center;
+}
+.pricing button:hover{
+    background-color: #4A6C2F;
+    cursor: pointer;
+}
+#footer{
+    background-color: #173042;
+    text-align: center;
+    color: #CFDFDA;
+    height: auto;
+    width: auto;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+@media screen and (max-width: 992px) {
+    #pricings{
+        flex-direction: column;
+    }
+    .pricing{
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #video{
+        width: 80%;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    #video{
+        width: 100%;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    #title{
+        display: none;
+    }
+    #nav-bar{
+        align-self: center;
+    }
+    .nav-link{
+        margin: 0 1rem 0 1rem;
+    }
+  }
+
+
+  
+/* 
+display: flex;
+flex-direction: default is row;
+justify-content and align-items
+align-self and margin-left/right: auto;
+flex-shrink and order 
+*/
