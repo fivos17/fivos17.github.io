@@ -126,7 +126,7 @@ p{
 }
 .project-tile{
     padding: 1rem 1rem 0.8rem 1rem;
-    background: linear-gradient(180deg, #002642 0%, #840032 100%);
+    background: linear-gradient(180deg, #002642 60%, #840032 100%);
     clip-path: polygon(0 2%, 1% 2%, 1% 0, 99% 0, 99% 2%, 100% 2%, 100% 98%, 99% 98%, 99% 100%, 1% 100%, 1% 98%, 0 98%);
 }
 .project-tile a{
