@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <title>random</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type='text/babel'>
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          loading: true,
+          quoteList: null,
+          count: Math.floor(Math.random()*100)
+        };
+        this.nextQuote = this.nextQuote.bind(this);
+      }
+
+      async componentDidMount() {
+        const api_url = 'https://type.fit/api/quotes';
+        const response = await fetch(api_url);
+        const data = await response.json();
+        this.setState({ quoteList: data, loading: false });
+      }
+      nextQuote() {
+        this.setState({count: Math.floor(Math.random() * (this.state.quoteList.length))});
+      }
+      
+      render() {
+
+        if (this.state.loading) {
+          return <div>loading...</div>;
+        }
+
+        if (!this.state.quoteList) {
+          return <div>didn't get a quote :(</div>;
+        }
+        const currentQuote = this.state.quoteList[this.state.count];
+        const tweetUrl = 'https://twitter.com/intent/tweet?text="' + currentQuote.text + '" ' + currentQuote.author + '&hashtags=quotes';
+        return (
+          <div id="quote-box" style={{ minHeight: '100vh', backgroundImage: "url('https://media.giphy.com/media/d3PcEfjRsLUqgTGZSE/giphy.gif')", backgroundSize: 'cover' }} className='justify-content-center align-items-center d-flex'>
+            <div className='col-md-7 bg-light p-4 border rounded'>
+              <div id='quote' className='m-3'>
+                <h4 id='text' className='text-center'><i class="fas fa-quote-left"></i> {currentQuote.text}</h4>
+                <p id='author' className='m-4 text-end'>-{currentQuote.author ?currentQuote.author :'Anonymous'}</p>
+              </div>
+              <div id='buttons'>
+                <button id='new-quote' className='btn me-3' style={{ backgroundColor: '#3295a8', color: 'white' }} onClick={this.nextQuote} title='Load a new quote!'>Next <i className="fas fa-dice"></i></button>
+                <a className="btn" style={{ color: '#3295a8' }} id="tweet-quote" href={tweetUrl} target='_blank' title='Tweet that quote!'><i className="fas fa-dove"></i></a>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
+    ReactDOM.render(<App />, document.getElementById('app'));
+  </script>
+</body>
+
+</html>
+<!-- 
+  API FETCH IN COMPONENT DID MOUNT
+  CONST CURRENTQUOTE RIGHT BEFORE RETURN
+  MINHEIGHT + DFLEX + JUSTIFY/ALIGN TO CENTER ELEMENTS
+  STATELESS FUNCTIONAL COMPONENTS SHOULD NOT USE THIS
+ -->

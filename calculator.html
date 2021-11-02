@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type='text/babel'>
+        class App extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { output: '0' };
+                this.numberInput = this.numberInput.bind(this);
+                this.operatorInput = this.operatorInput.bind(this);
+                this.decimalInput = this.decimalInput.bind(this);
+                this.clearOutput = this.clearOutput.bind(this);
+                this.calculate = this.calculate.bind(this);
+            }
+
+            // Outputting numbers
+            numberInput(value) {
+                if (this.state.output === '0') {
+                    this.setState({ output: value });
+                } else {
+                    this.setState({ output: this.state.output + value });
+                }
+            }
+
+            // Outputting operators
+            operatorInput(op) {
+                const operatorReg = /[+-/x]$/;
+                if (operatorReg.test(this.state.output) && op !== '-') {
+                    this.setState({ output: this.state.output.replace(operatorReg, op) });
+                } else {
+                    this.setState({ output: this.state.output + op });
+                }
+            }
+
+            // Inserting commas
+            decimalInput() {
+                const decimalReg = /\d+\.\d*$|[+-/x]$/g;
+                console.log(this.state.output.match(decimalReg));
+                if (!decimalReg.test(this.state.output)) {
+                    this.setState({ output: this.state.output + '.' });
+                }
+            }
+
+            // Clear
+            clearOutput() {
+                this.setState({ output: '0' });
+            }
+
+            // Calculate (deconstruct output string with regexp, parsefloat and match operators)
+            calculate() {
+                const elemReg = /^-\d+[\d\.]*|\d+[\d\.]*|[+-/x]+/g;
+                const elem = this.state.output.match(elemReg);
+                console.log(elem);
+                const matchOperators = {
+                    '+': function (x, y) { return x + y },
+                    '-': function (x, y) { return x - y },
+                    'x': function (x, y) { return x * y },
+                    '/': function (x, y) { return x / y },
+                }
+                let count = parseFloat(elem[0]);
+
+                for (let i = 1; i < elem.length; i += 2) {
+                    if (elem[i].charAt(elem[i].length - 1) === '-' && elem[i].length - 1) {
+                        count = matchOperators[elem[i].charAt(elem[i].length - 2)](count, - parseFloat(elem[i + 1]));
+                    } else {
+                        count = matchOperators[elem[i].charAt(elem[i].length - 1)](count, parseFloat(elem[i + 1]));
+                    }
+                    console.log(count);
+                }
+                this.setState({ output: (Math.round(count*10**5)/10**5).toString() });
+            }
+            render() {
+                return (
+                    <div className='container' style={{ width: '320px' }}>
+                        <h1 className='font-monospace mt-5 animate__hinge'>SCUFFED</h1>
+                        <h1 className='font-monospace mb-5'>CALCULATOR</h1>
+                        <div className='row g-1 bg-success bg-gradient shadow p-3 rounded border'>
+                            <Display output={this.state.output} />
+                            <Clear onClear={this.clearOutput} />
+                            <Numbers value='7' id='seven' onNumber={this.numberInput} />
+                            <Numbers value='8' id='eight' onNumber={this.numberInput} />
+                            <Numbers value='9' id='nine' onNumber={this.numberInput} />
+                            <Operators value='/' id='divide' onOperator={this.operatorInput} />
+                            <Numbers value='4' id='four' onNumber={this.numberInput} />
+                            <Numbers value='5' id='five' onNumber={this.numberInput} />
+                            <Numbers value='6' id='six' onNumber={this.numberInput} />
+                            <Operators value='x' id='multiply' onOperator={this.operatorInput} />
+                            <Numbers value='1' id='one' onNumber={this.numberInput} />
+                            <Numbers value='2' id='two' onNumber={this.numberInput} />
+                            <Numbers value='3' id='three' onNumber={this.numberInput} />
+                            <Operators value='-' id='subtract' onOperator={this.operatorInput} />
+                            <Numbers value='0' id='zero' onNumber={this.numberInput} />
+                            <Decimal onDecimal={this.decimalInput} />
+                            <Equal onEqual={this.calculate} />
+                            <Operators value='+' id='add' onOperator={this.operatorInput} />
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        function Clear({ onClear }) {
+            return (
+                <div className='col-3'>
+                    <button className='btn btn-danger rounded w-100 h-100' id='clear' onClick={onClear}>
+                        AC
+                    </button>
+                </div>
+            )
+        }
+        function Decimal({ onDecimal }) {
+            return (
+                <div className='col-3'>
+                    <button className='btn btn-secondary rounded w-100' id='decimal' onClick={onDecimal}>
+                        .
+                    </button>
+                </div>
+            )
+        }
+        function Display({ output }) {
+            return (
+                <div className='col-9'>
+                    <h5 className='p-1 h-100 font-monospace text-light bg-dark overflow-hidden' id='display'>
+                        {output}
+                    </h5>
+                </div>
+            )
+        }
+        function Equal({ onEqual }) {
+            return (
+                <div className='col-3'>
+                    <button className='btn btn-primary rounded w-100' id='equals' onClick={onEqual}>
+                        =
+                    </button>
+                </div>
+            )
+        }
+        function Numbers({ value, id, onNumber }) {
+            return (
+                <div className='col-3'>
+                    <button id={id} className='btn btn-secondary rounded w-100' onClick={() => onNumber(value)}>
+                        {value}
+                    </button>
+                </div>
+            )
+        }
+        function Operators({ value, id, onOperator }) {
+            return (
+                <div className='col-3'>
+                    <button className='btn btn-primary rounded w-100' id={id} onClick={() => onOperator(value)}>
+                        {value}
+                    </button>
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App />, document.getElementById('app'));
+    </script>
+</body>
+
+</html>
+<!-- 
+    APP MADE WITH PARCEL https://www.freecodecamp.org/news/how-to-up-a-react-app-with-parcel/
+    BREAKING DOWN COMPONENTS
+    FUNCTIONAL COMPONENTS
+    HOOKS
+    EVAL
+    ALT + CLICK // CTR + D // SHIFT + ALT + RIGHT https://code.visualstudio.com/docs/editor/codebasics
+ -->
