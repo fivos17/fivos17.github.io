@@ -89,7 +89,7 @@ function App() {
   
   return (
       <div className="container d-flex justify-content-center">
-      <div className="bg-danger p-4 rounded">
+      <div className="p-4 rounded" style={{backgroundColor:'tomato'}}>
       <h1 className='mb-4 text-light' style={{fontFamily:'"Courgette", cursive'}}>POMODORO</h1>
       <div className='d-md-flex'>
       <SessionLength
