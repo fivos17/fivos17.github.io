@@ -1,0 +1,17 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header {
+    margin: 3rem 0 3rem 5rem;
+}
+#title, #description{
+    font-weight: 400;
+}
+#tooltip{
+    background-color: ghostwhite;
+    border: 5px solid black;
+    border-radius: 3px;
+    padding: 3px;
+    position: absolute;
+    text-align: center;
+}
